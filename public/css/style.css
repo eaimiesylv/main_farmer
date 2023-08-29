@@ -1,0 +1,8 @@
+label{
+ 
+    text-align:left;
+  }
+  .custom-checkbox {
+    display: inline-block;
+    opacity: 0; /* Set initial opacity for the checkbox */
+  } 
