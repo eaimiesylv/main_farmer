@@ -26,71 +26,134 @@
         body {
         min-height: 100vh;
         display: flex; /* Use flexbox to arrange the elements */
-    }
+         }
 
-    aside {
-        background: red;
-        padding: 2em;
-        height: 100vh;
-        width: 150px; /* Set the initial width for the aside */
-    }
-
-    main {
-        background: #F9F9F9;
-        flex: 1; /* Allow main to take remaining width */
-    }
-
-        section{
-            background:black;
+        aside {
+            background: black;
+            color:white;
+            padding: 2em;
+            height: 100vh;
+            width: 200px; /* Set the initial width for the aside */
         }
-        header{
+
+        main {
+            background: #F9F9F9;
+            flex: 1; /* Allow main to take remaining width */
+        }
+
+         header{
            
             background:white;
-            background:black;
+            height:70px;
+           
         }
         section{
             background:white;
             width:95%;
-            margin:0 auto;
+            min-height:600px;
+            margin:3em auto;
         }
         main{background:#F9F9F9}
 
 
-        /* Custom styles */
+        /* Move the last 3 list item to the righ */
+        .header-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top:1.3em;
 
-
-.header-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.header-list li {
-  list-style: none;
-}
-li{
-    margin-left:1em
-}
-.end-item {
-  margin-left: auto;
-}
-
-
-@media (max-width: 767px) {
-        aside {
-            display: none;
+        
+        
         }
-    }
+
+        li {
+        list-style: none;
+        
+        }
+        header li{
+            margin-left:3em;
+        }
+        .end-item {
+        margin-left: auto;
+        }
+        /*Nav Style*/
+        /* Reset default list styles */
+/* Reset default list styles */
+/* Reset default list styles */
+
+
+
+        @media (max-width: 767px) {
+            aside {
+                display: none;
+                position:absolute;
+                margin-top:3em;
+            }
+            main{
+                width:100% !important;
+            }
+        }
     </style>
     <body>
                <aside>
 
-                    <ul>
-                        <li> <i class="fas fa-sun"></i>Home</li>
-                        <li> <i class="fas fa-sun"></i>About</li>
-                        <li> <i class="fas fa-sun"></i>Contact</li>
+               <nav>
+                    <ul class="nav-links">
+                        <li><i class="fas fa-home"></i> Home</li>
+                        <li><i class="fas fa-file-alt"></i> Manage Document</li>
+                        <li>
+                            <i class="fas fa-users"></i> Investors<i class="fas fa-caret-down"></i>
+
+
+                            <ul class="sub-links">
+                                <li></i> Investor</li>
+                                <li></i> Investor groups</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <i class="fas fa-briefcase"></i> Deals<i class="fas fa-caret-down"></i>
+                            <ul class="sub-links">
+                                <li></i> All deals</li>
+                                <li></i> Pipelines</li>
+                                <li></i> Pipeline view</li>
+                            </ul>
+                        </li>
+                        <li><i class="fas fa-file-invoice"></i> Invoices</li>
+                        <li>
+                            <i class="fas fa-file-signature"></i> Proposals<i class="fas fa-caret-down"></i>
+                            <ul class="sub-links">
+                                <li></i> Proposal list</li>
+                                <li></i> Templates</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <i class="fas fa-tasks"></i> Activities<i class="fas fa-caret-down"></i>
+                            <ul class="sub-links">
+                                <li></i> Calendar View</li>
+                                <li></i> Activity list</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <i class="fas fa-money-bill"></i> Expenses<i class="fas fa-caret-down"></i>
+                            <ul class="sub-links">
+                                <li></i> Expenses</li>
+                                <li></i> Area of Expenses</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-bar"></i> Report<i class="fas fa-caret-down"></i>
+                            <ul class="sub-links">
+                                <li></i> Deals</li>
+                                <li></i> Proposal</li>
+                                <li></i> Pipeline</li>
+                            </ul>
+                        </li>
+                        <li><i class="fas fa-users-cog"></i> Users & Roles</li>
+                        <li><i class="fas fa-cog"></i> Settings</li>
+                        <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
                     </ul>
+                </nav>
                </aside>
                <main>
                     <header>
@@ -114,6 +177,9 @@ li{
             $("#mobile_bar").click(function() {
                 $("aside").toggle();
             });
+
+            //
+            
         })
   </script>
 </html>
