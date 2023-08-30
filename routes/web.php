@@ -4,11 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Mail\WelcomeMail;
 
 
-
+Route::post('/login', function(){
+    return 'ok';
+});
 Route::get('/login', function () {
     return view('welcome');
 });
-Route::post('login', 'Auth\LoginController@login');
+//Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/register', function () {
     return view('welcome');
