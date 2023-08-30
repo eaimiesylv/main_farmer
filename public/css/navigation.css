@@ -1,0 +1,54 @@
+  /***************************Navigation style*****************************/
+    
+  ul.nav-links, .sub-links{
+    list-style: none;
+
+}
+ul.nav-links li{
+    margin-top:1.5em;
+    
+}
+ul.sub-links {
+    display: none;
+    list-style: none;
+
+}
+
+ul.nav-links > li.active > ul.sub-links {
+    display: block;
+    padding: 3px;
+   /* background-color: #f8f9fa;*/
+    transition: all 0.3s ease; /* Add transition effect (3) */
+    border-radius: 1px;
+    color: orange;
+    
+}
+
+ul.nav-links i.fas {
+    margin-right: 0.5em; /* Space to the right of the icon */
+    margin-left: 0.1em;  /* Space to the left of the icon */
+}
+
+ul.nav-links li:hover {
+    color: #007bff; /* Change to your desired hover color (5) */
+}
+ul.sub-links li:hover {
+    color: #007bff; /* Change to your desired hover color (5) */
+}
+/* End of navigation style*/
+    
+
+/* Custom CSS to hide the arrow icon */
+.no-arrow::after {
+    display: none !important;
+}   
+.dropdown-menu-right{
+    margin-top:1.8em;
+}
+.dropdown-menu-right a{
+    margin:1.5em;
+}
+header .fas{
+    color:green;
+    font-size:1.2em;
+}
