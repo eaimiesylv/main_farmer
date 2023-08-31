@@ -1,4 +1,5 @@
-<ul class="header-list">
+<template>
+    <ul class="header-list">
                     <li><i class="fas fa-bars mobile" id="mobile_bar"></i></li>
                     <li class="end-item">
                          <i class="fas fa-sun"></i>
@@ -22,4 +23,5 @@
 							</form>
 						</div>
 					</li>
-</ul>
+        </ul>
+</template>

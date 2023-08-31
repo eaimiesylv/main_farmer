@@ -9,6 +9,7 @@
             <input
               type="email"
               id="email"
+              name="email"
               v-model="login.email"
               class="form-control"
               required
@@ -19,6 +20,7 @@
             <input
               type="password"
               id="password"
+              name="password"
               v-model="login.password"
               class="form-control"
               required
@@ -46,8 +48,8 @@ export default {
     return {
      csrfToken: window.Laravel.csrfToken,
       login: {
-        email: 'okomemmanuel1@gmail.com',
-        password: 'abcd',
+        email: 'test12@gmail.com',
+        password: 'abc',
       },
       userRole: null,
     };
@@ -55,7 +57,7 @@ export default {
   methods: {
     submitData() {
       toastr.success("This is a success message.", "Success");
-      this.$router.push('/dashboard');
+      //this.$router.push('/dashboard');
     },
   },
 };

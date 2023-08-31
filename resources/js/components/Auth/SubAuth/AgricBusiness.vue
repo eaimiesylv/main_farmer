@@ -196,18 +196,18 @@ export default {
     return {
      
       fields: {
-        organizationName:'',
-        dealName: '', 
-        dealPromoters: '' ,
-        dealDescription: '', 
-        hasBusinessPlan:'', 
-        focalStates: '', 
-        ticketSize: '', 
-        raiseAmount: '' ,
-        purpose: '',
+        organizationName:'a',
+        dealName: 'a', 
+        dealPromoters: 'a' ,
+        dealDescription: 'a', 
+        hasBusinessPlan:'a', 
+        focalStates: 'a', 
+        ticketSize: 'a', 
+        raiseAmount: 'a' ,
+        purpose: 'a',
         preferredValueChain: [], 
         otherValueChains: null,
-        pitchFile: null, 
+        
       
       },
       

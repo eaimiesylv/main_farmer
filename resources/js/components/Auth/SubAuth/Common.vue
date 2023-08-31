@@ -95,11 +95,11 @@ export default {
     return {
       fields: {
         company_website: '', // 1. Your Company Website
-        contact_person: '', // 2. Contact Person
-        fullname: '', // 3. Full Name
-        email: '',
-        password: '',
-        phone_number: ''
+        contact_person: 'a', // 2. Contact Person
+        fullname: 'a', // 3. Full Name
+        email: 'test12@gmail.com',
+        password: 'abc',
+        phone_number: '12'
       },
       userRole: null,
     };

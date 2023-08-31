@@ -4,24 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Mail\WelcomeMail;
 
 
-Route::post('/login', function(){
-    return 'ok';
-});
-Route::get('/login', function () {
-    return view('welcome');
-});
-//Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', function () {
-    return view('welcome');
-});
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/login', function () {return view('welcome');})->name('login');
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class,'login']);
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
 
-Route::fallback(function () {
-    return redirect('/'); // Redirect to the home page
-});
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/register', function () { return view('welcome');});
+
+Route::fallback(function () { return redirect('/');});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

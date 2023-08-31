@@ -49,10 +49,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    /*public function roles()
+    public function agricbusiness_detail()
     {
-        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
-    }*/
+        return $this->hasOne(AgricBusiness::class);
+    }
+
+    public function investor_detail()
+    {
+        return $this->hasOne(InvestorDetail::class);
+    }
    
     
 }

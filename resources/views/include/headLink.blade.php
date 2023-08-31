@@ -11,3 +11,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navigation.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('toastr/toastr.css') }}">
+    <link rel="stylesheet" href="{{ asset('toastr/toastr.min.js') }}"> -->

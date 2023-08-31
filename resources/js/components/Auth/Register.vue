@@ -115,6 +115,7 @@ export default {
     }
   },
   validateCommonFields() {
+    //toastr.success('ok');
       // Access the Common component using the reference
       this.commonField = this.$refs.commonComponent;
 
@@ -131,7 +132,7 @@ export default {
       return requiredFieldsFilled;
     },
     async submitData(){
-
+      console.log('ok');
        try{
           const dynamicComponentData = { ...this.$refs.dynamicComponent.fields };
           const commonComponentData = { ...this.commonField.fields };
@@ -146,7 +147,7 @@ export default {
         const response = await axios.post('/api/user', payload);
         if (response.data.message) {
         // Success handling
-          toastr.success(response.data.message);
+         // toastr.success(response.data.message);
           this.$router.push('/login');
            console.log('Registration successful:', response.data.message);
         // Redirect or show a success message to the user
