@@ -1,77 +1,85 @@
 <template>
     <div class="container-fluid">
 
-
+        <div class="row">
+                <div class="col-md-12" style="height:150px;background:white;margin-bottom:2em">
+                        head top
+                </div>
+        </div>
 
         <div class="row">
             <div class="nav flex-column col-sm-12 col-md-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                  
                     <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</a>
                     <a class="nav-link" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">Password</a>
-                    <a class="nav-link" id="v-pills-detail-tab" data-toggle="pill" href="#v-pills-detail" role="tab" aria-controls="v-pills-detail" aria-selected="false">{{ detail }}</a>
+                    <a class="nav-link" id="v-pills-detail-tab" data-toggle="pill" href="#v-pills-detail" role="tab" aria-controls="v-pills-detail" aria-selected="false">{{detail}}</a>
                        
              </div>
-            <div class="tab-content  col-sm-12 col-md-8" id="v-pills-profile-tab">
-                    
-                    <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+             <div class="col-sm-12 col-md-9">
+                
+             
+                <div class="tab-content" id="v-pills-profile-tab">
                         
-                        <form>
-                            <template v-for="(field, index) in profile_fields" :key="index">
+                        <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            
+                            <form>
+                                <template v-for="(field, index) in profile_fields" :key="index">
+                                    <form-field
+                                        :label="field.label"
+                                        :type="field.type"
+                                        :value="profile[field.name]"
+                                        :placeholder="field.placeholder"
+                                        :isRequired="field.isRequired"
+                                        @input="profile[field.name] = $event"
+                                    />
+                                </template>
+                            </form>
+                            <!---<form>
                                 <form-field
-                                    :label="field.label"
-                                    :type="field.type"
-                                    :value="profile[field.name]"
-                                    :placeholder="field.placeholder"
-                                    :isRequired="field.isRequired"
-                                    @input="profile[field.name] = $event"
+                                    label="Fullname"
+                                    type="text"
+                                    :value="profile.fullname"
+                                    placeholder="Fullname"
+                                    :isRequired="true"
+                                    @input="profile.fullname = $event"
                                 />
-                            </template>
-                        </form>
-                        <!---<form>
-                            <form-field
-                                label="Fullname"
-                                type="text"
-                                :value="profile.fullname"
-                                placeholder="Fullname"
-                                :isRequired="true"
-                                @input="profile.fullname = $event"
-                            />
-                           
-                        </form>-->
-                    
-                         
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
-                        <form>
-                            <template v-for="(field, index) in password_fields" :key="index">
-                                <form-field
-                                    
-                                    :label="field.label"
-                                    :type="field.type"
-                                    :value="user_password[field.name]"
-                                    :placeholder="field.placeholder"
-                                    :isRequired="field.isRequired"
-                                    @input="user_password[field.new_name] = $event"
-                                />
-                            </template>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-detail" role="tabpanel" aria-labelledby="v-pills-detail-tab">
-                        <form>
-                            <template v-for="(field, index) in user_details" :key="index">
-                                <form-field
-                                    
-                                    :label="field.label"
-                                    :type="field.type"
-                                    :value="user_detail[field.name]"
-                                    :placeholder="field.placeholder"
-                                    :isRequired="field.isRequired"
-                                    @input="user_detail[field.new_password] = $event"
-                                />
-                            </template>
-                        </form>
+                            
+                            </form>-->
+                        
+                            
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab">
+                            <form>
+                                <template v-for="(field, index) in password_fields" :key="index">
+                                    <form-field
+                                        
+                                        :label="field.label"
+                                        :type="field.type"
+                                        :value="user_password[field.name]"
+                                        :placeholder="field.placeholder"
+                                        :isRequired="field.isRequired"
+                                        @input="user_password[field.new_name] = $event"
+                                    />
+                                </template>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-detail" role="tabpanel" aria-labelledby="v-pills-detail-tab">
+                            <form>
+                                <template v-for="(field, index) in user_details" :key="index">
+                                    <form-field
+                                        
+                                        :label="field.label"
+                                        :type="field.type"
+                                        :value="user_detail[field.name]"
+                                        :placeholder="field.placeholder"
+                                        :isRequired="field.isRequired"
+                                        @input="user_detail[field.new_password] = $event"
+                                    />
+                                </template>
+                            </form>
 
-                    </div>
+                        </div>
+                </div>
             </div>
         </div>
     </div>
@@ -89,16 +97,15 @@
 .nav, .tab-content{
     
     background:white;
-    background: #F9F9F9;
     padding:2em;
    
 }
-
+/*
 .tab-content{
     margin-left:2em !important;
    
    
-}
+}**/
 </style>
 <script>
 import FormField from '@/components/FormField/FormFields.vue'

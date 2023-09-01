@@ -39,7 +39,7 @@
             background:white;
             width:95%;
             min-height:600px;
-            margin:3em auto;
+            margin:1em auto;
         }
         
 
@@ -82,26 +82,25 @@
        }*/
     </style>
     <body id="app" >
-           <!--
-           <aside>
+           
+          <aside>
         
                  <side-nav/>
 
             </aside>
-                --->
+            
             <main>
-                 <!--<header>
+                 <header>
                    
-                   
+                    <!--These file contain the header navigation item-->
                       <header-nav />
-                    
-                </header>-->
+
+                </header>
                 <section>
-                    <input type="hidden" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
+                   
+                <input type="hidden" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
                     <input type="hidden" id="agricbusiness_detail" value="{{ json_encode(Auth::user()->agricbusiness_detail) }}"/>
                     <input type="hidden" id="investor_detail" value="{{ json_encode(Auth::user()->investor_detail) }}"/>
-
-                
                     <li class="dropdown">
                             <a class="dropdown-toggle no-arrow" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                                 <i class="fas fa-user"></i>
@@ -119,6 +118,8 @@
                                 </form>
                             </div>
                     </li>
+                
+                    
                     <router-view></router-view>
 
 
