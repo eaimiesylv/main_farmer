@@ -13,6 +13,9 @@ Route::get('/register', function () { return view('welcome');});
 
 Route::fallback(function () { return redirect('/');});
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+//displays the dashboard
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/pitch', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

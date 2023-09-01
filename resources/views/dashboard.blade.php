@@ -1,6 +1,7 @@
 
     @include('include.headLink')
     <link rel="stylesheet" href="{{ asset('css/navigation.css') }}">
+   
 
    
   </head>
@@ -40,7 +41,7 @@
             min-height:600px;
             margin:3em auto;
         }
-        main{background:#F9F9F9}
+        
 
 
         /* Move the last 3 list item to the righ */
@@ -75,23 +76,48 @@
 			margin-top:4em;
 			}
         }
+        /* remove this code 
+       main{
+        background:white;
+       }*/
     </style>
-    <body id="app">
+    <body id="app" >
            
-            <aside>
-                 <!-- These file contain the side navigation item--> 
+           <aside>
+        
                  <side-nav/>
 
             </aside>
 
             <main>
-                <header> {{Auth::user()}}
-                     <!-- These file contain the header navigation item-->
+                 <header>
+                    <input type="hidden" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
+                    <input type="hidden" id="agricbusiness_detail" value="{{ json_encode(Auth::user()->agricbusiness_detail) }}"/>
+                    <input type="hidden" id="investor_detail" value="{{ json_encode(Auth::user()->investor_detail) }}"/>
+
+                    <!--These file contain the header navigation item-->
                       <header-nav />
                     
                 </header>
                 <section>
-                        
+                
+                <li class="dropdown">
+						<a class="dropdown-toggle no-arrow" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+							<i class="fas fa-user"></i>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+							<router-link to="/profile" class="dropdown-item"> <i class="fas fa-user"></i> Profile </router-link>
+							<a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
+							<a class="dropdown-item" href="#"><i class="fas fa-bell"></i> Notifications</a>
+							<a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+								<i class="fas fa-sign-out-alt"></i> Logout
+							</a>
+
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
+						</div>
+					</li>
                     <router-view></router-view>
 
 
@@ -99,12 +125,14 @@
             
             </main>
         
+
     </body>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script>
+       
        $(document).ready(function() {
           
             // Toggle aside on mobile bar click
@@ -119,4 +147,5 @@
             
         })
   </script>
+
 </html>

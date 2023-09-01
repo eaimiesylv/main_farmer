@@ -9,6 +9,7 @@ const routes = [
   { path: '/login', component:Login},
   { path: '/register', component:Register },
   { path: '/profile', component:Profile},
+  { path: '/pitch', component:Profile},
   // Define more routes as needed
 ];
 

@@ -27,8 +27,9 @@ class LoginController extends Controller
               
               return response()->apiResponse('errors','Wrong Credentials',null,500);
          } 
-         $user->load(['agricbusiness_detail', 'investor_detail']);
+        $user= $user->load(['agricbusiness_detail', 'investor_detail']);
          Auth::login($user);
+       // dd($user);
         // protected $redirectTo = RouteServiceProvider::HOME;
         return redirect()->route('dashboard');
 

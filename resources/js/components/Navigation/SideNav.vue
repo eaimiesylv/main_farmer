@@ -3,7 +3,7 @@
         <ul class="nav-links">
             <!--<li><i class="fas fa-home"></i> Home</li>-->
             <li><router-link to="/"><i class="fas fa-tachometer-alt"></i> Dashboard</router-link></li>
-            <li><i class="fas fa-file-alt"></i> Pitch</li>
+            <li><router-link to="/pitch"><i class="fas fa-file-alt"></i> Pitch</router-link></li>
             <li>
                 <i class="fas fa-users"></i> Investors <i class="fas fa-caret-down"></i>
                 <ul class="sub-links">
