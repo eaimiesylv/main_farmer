@@ -4,14 +4,15 @@
 
 
         <div class="row">
-            <div class="nav flex-column col-sm-12 col-md-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background">
+            <div class="nav flex-column col-sm-12 col-md-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                  
                     <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</a>
                     <a class="nav-link" id="v-pills-password-tab" data-toggle="pill" href="#v-pills-password" role="tab" aria-controls="v-pills-password" aria-selected="false">Password</a>
-                    <a class="nav-link" id="v-pills-detail-tab" data-toggle="pill" href="#v-pills-detail" role="tab" aria-controls="v-pills-detail" aria-selected="false">{{detail}}</a>
-            </div>
-            <div class="tab-content  col-sm-12 col-md-7 offset-md-1" id="v-pills-profile-tab">
-                     {{ profile }}
+                    <a class="nav-link" id="v-pills-detail-tab" data-toggle="pill" href="#v-pills-detail" role="tab" aria-controls="v-pills-detail" aria-selected="false">{{ detail }}</a>
+                       
+             </div>
+            <div class="tab-content  col-sm-12 col-md-8" id="v-pills-profile-tab">
+                    
                     <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                         
                         <form>
@@ -75,25 +76,35 @@
         </div>
     </div>
 </template>
-<style>
+<style scoped>
 
-section{
+
+.container-fluid{
     background: #F9F9F9;
+    height:100vh;
+    padding:3em;
+   
 }
-.row{
+
+.nav, .tab-content{
+    
     background:white;
-    min-height:300px;
+    background: #F9F9F9;
+    padding:2em;
+   
 }
-.row div:nth-child(2){
+
+.tab-content{
     margin-left:2em !important;
-    background:green;
+   
    
 }
 </style>
 <script>
 import FormField from '@/components/FormField/FormFields.vue'
 import {passwordFields} from '@/components/Datasource/PasswordField.js'
-//import InvestorDetail from '@/components/FormField/InvestorDetail.vue'
+import {profileFields} from '@/components/Datasource/ProfileField.js'
+import {allDetails} from '@/components/Datasource/AllDetail.js'
     export default{
        name:'Profile',
        components:{
@@ -110,117 +121,39 @@ import {passwordFields} from '@/components/Datasource/PasswordField.js'
                   user_detail:{},
                   user_details:{},
                   password_fields:passwordFields,
-                 
-                  profile_fields:[
-                        {
-                            name: "fullname",
-                            label: "Fullname",
-                            type: "text",
-                            placeholder: "Fullname",
-                            isRequired: true,
-                        },
-                        {
-                            name: "email",
-                            label: "Email",
-                            type: "email",
-                            placeholder: "Email",
-                            isRequired: true,
-                        },
-                        /*{
-                            name: "company_website",
-                            label: "Company website",
-                            type: "url",
-                            placeholder: "Company website",
-                            isRequired: true,
-                        },*/
-                        {
-                            name: "phone_number",
-                            label: "Phone Number",
-                            type: "number",
-                            placeholder: "Phone Number",
-                            isRequired: true,
-                        },
-                        {
-                            name: "contact_person",
-                            label: "Contact Person",
-                            type: "text",
-                            placeholder: "Contact Person",
-                            isRequired: true,
-                        },
-                 ],
-                
-                 all_details:{
-                    'agricbusiness':[
-                    
-                    ],
-                    'investor':[
-                        {
-                            name: "Finance Institution",
-                            label: "Finance Institution",
-                            type: "text",
-                            placeholder: "Finance Institution",
-                            isRequired: true,
-                        },
-                        {
-                            name: "Investment Type",
-                            label: "Investment Type",
-                            type: "text",
-                            placeholder: "Investment Type",
-                            isRequired: true,
-                        },
-                        {
-                            name: "Preferred deal size",
-                            label: "Preferred deal size",
-                            type: "text",
-                            placeholder: "Preferred deal size",
-                            isRequired: true,
-                        },
-                        {
-                            name: "Funding Type",
-                            label: "Funding Type",
-                            type: "text",
-                            placeholder: "Funding Type",
-                            isRequired: true,
-                        },
-                        {
-                            name: "Organization Description",
-                            label: "Organization Description",
-                            type: "text",
-                            placeholder: "Organization Description",
-                            isRequired: true,
-                        },
-                    ]
-                }
+                  profile_fields:profileFields,
+                  all_details:allDetails
+              
             }
         },
         methods:{
 
         },
         mounted(){
-            //this.password_fields=PasswordFields
+            //step 1 handles users profile information
             const authUserInput = document.getElementById("auth_user");
             const authUserValue = authUserInput.value;
             this.profile=JSON.parse(authUserValue);
-            
+            //step 2 handles agric business detail
             const agricbusiness_detail = document.getElementById("agricbusiness_detail");
             const agricbusiness_value = JSON.parse(agricbusiness_detail.value);
-        
+            //step 3handles investor detail
             const investor_detail = document.getElementById("investor_detail");
             const investor_value = JSON.parse(investor_detail.value);
-            //renders  investor detail
+            //renders  step 2 or 3
             if(!agricbusiness_value){
                 this.detail= "Investor Detail"
                 this.user_details=this.all_details['investor']
                 this.user_detail=investor_value
             }else{
-            //renders agric details
+           
                 this.detail="Agribusiness Detail"
                 this.user_details=this.all_details['agricbusiness']
                 this.user_detail=agricbusiness_value
             }
            
           
-           // console.log(investor_value);
+            console.log(this.user_detail)
            
         }
         /**

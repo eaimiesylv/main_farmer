@@ -8,6 +8,7 @@
         :placeholder="placeholder"
         @input="$emit('input', $event.target.value)"
         :required="isRequired"
+        readonly
       />
     </div>
   </template>

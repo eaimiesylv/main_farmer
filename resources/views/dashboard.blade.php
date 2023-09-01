@@ -82,42 +82,43 @@
        }*/
     </style>
     <body id="app" >
-           
+           <!--
            <aside>
         
                  <side-nav/>
 
             </aside>
-
+                --->
             <main>
-                 <header>
+                 <!--<header>
+                   
+                   
+                      <header-nav />
+                    
+                </header>-->
+                <section>
                     <input type="hidden" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
                     <input type="hidden" id="agricbusiness_detail" value="{{ json_encode(Auth::user()->agricbusiness_detail) }}"/>
                     <input type="hidden" id="investor_detail" value="{{ json_encode(Auth::user()->investor_detail) }}"/>
 
-                    <!--These file contain the header navigation item-->
-                      <header-nav />
-                    
-                </header>
-                <section>
                 
-                <li class="dropdown">
-						<a class="dropdown-toggle no-arrow" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-							<i class="fas fa-user"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-							<router-link to="/profile" class="dropdown-item"> <i class="fas fa-user"></i> Profile </router-link>
-							<a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
-							<a class="dropdown-item" href="#"><i class="fas fa-bell"></i> Notifications</a>
-							<a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-								<i class="fas fa-sign-out-alt"></i> Logout
-							</a>
+                    <li class="dropdown">
+                            <a class="dropdown-toggle no-arrow" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                                <i class="fas fa-user"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <router-link to="/profile" class="dropdown-item"> <i class="fas fa-user"></i> Profile </router-link>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-bell"></i> Notifications</a>
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
 
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-								@csrf
-							</form>
-						</div>
-					</li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                    </li>
                     <router-view></router-view>
 
 
@@ -147,5 +148,9 @@
             
         })
   </script>
-
+     <script>
+        window.Laravel = {
+            csrfToken: "{{ csrf_token() }}"
+        };
+   </script>
 </html>

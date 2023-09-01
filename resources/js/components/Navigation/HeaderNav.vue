@@ -18,10 +18,20 @@
 								<i class="fas fa-sign-out-alt"></i> Logout
 							</a>
 
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-								@csrf
+							<form id="logout-form" action="/logout" method="POST" style="display: none;">
+								<input type="text" name="_token" v-bind:value="csrfToken">
 							</form>
 						</div>
 					</li>
         </ul>
 </template>
+<script>
+export default {
+	name: "HeaderNav",
+	data() {
+	  return {
+	   csrfToken: window.Laravel.csrfToken,
+	  }
+	},
+  };
+  </script>
