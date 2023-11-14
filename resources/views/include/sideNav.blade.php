@@ -2,8 +2,12 @@
                 <ul class="nav-links">
                     <!--<li><i class="fas fa-home"></i> Home</li>-->
                     <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
-                    <li><i class="fas fa-file-alt"></i> Pitch</li>
-                    <li>
+                    <li><i class="fas fa-file-alt"></i>Manage Pitch</li>
+                    <li><i class="fas fa-user"></i>Investors</li>
+                    <li><i class="fas fa-users"></i>Agribusinesses</li>
+                    <li> <i class="fas fa-briefcase"></i></i> Deals</li>
+                    <li><i class="fas fa-file-signature"></i>Proposals</li>
+                    <!-- <li>
                         <i class="fas fa-users"></i> Investors <i class="fas fa-caret-down"></i>
                         <ul class="sub-links">
                             <li><i class="fas fa-user"></i> Investor</li>
@@ -50,6 +54,6 @@
                     </li>
                     <li><i class="fas fa-users-cog"></i> Users & Roles</li>
                     <li><i class="fas fa-cog"></i> Settings</li>
-                    
+                     -->
                 </ul>
             </nav>

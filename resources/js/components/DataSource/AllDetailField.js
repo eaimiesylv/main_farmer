@@ -1,5 +1,5 @@
   
-    export const allDetails={
+    export const allDetailsFields={
                     'agricbusiness':[
                         
                         {

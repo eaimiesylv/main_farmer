@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -17,26 +18,19 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-
-        $types = [ 1,2];
-        $roles = [1,2,3,4];
+        $types = [1,2,3];
+       
         return [
-            'asset_id' =>Str::uuid(),
-            'name' => $this->faker->firstName . '  '.  $this->faker->lastName,
-            'email' => $this->faker->lastName . rand(1,100) . '@' . $this->faker->freeEmailDomain,
-            'phone' => fake()->phoneNumber,
-            'address' => fake()->streetAddress,
-            'city' => fake()->city,
-            'state' => 'Florida',
-            'postal_code' => fake()->postcode,
-            'country' => 'USA',
-            'verified_at' => now(),
-            'type' => $types[array_rand($types)],
-            'role_id' => $roles[array_rand($roles)],
-            'status' => 'active',
-            'avatar' => fake()->imageUrl(640, 480, 'people', true),
-            'timezone' => fake()->timezone,
-            
+            'email' => $this->faker->unique()->safeEmail,
+            'fullname' => $this->faker->name,
+            'company_website' => $this->faker->url,
+            'phone_number' => $this->faker->phoneNumber,
+            'contact_person' => $this->faker->name,
+            'password' => bcrypt('password'), 
+            'email_verified_at' => now(),
+            'last_login_at' => now(),
+            'user_role' => array_rand($types),
+            'status' => 1,
         ];
        
     }

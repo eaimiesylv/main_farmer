@@ -9,7 +9,7 @@
             <div class="form-group row">
               <label class="col-sm-12 col-form-label">Register as</label>
               <div class="col-sm-12">
-                <select class="form-control" v-model="userRole" >
+                <select class="form-control" v-model="userRole" required>
                   <option v-for="role in userTypeList" :key="role.id" :value="role.id">{{ role.value }}</option>
                 </select>
               </div>
@@ -132,7 +132,7 @@ export default {
       return requiredFieldsFilled;
     },
     async submitData(){
-      console.log('ok');
+     
        try{
           const dynamicComponentData = { ...this.$refs.dynamicComponent.fields };
           const commonComponentData = { ...this.commonField.fields };

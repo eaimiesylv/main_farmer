@@ -12,8 +12,8 @@
         }
        
         body {
-        min-height: 100vh;
-        display: flex; /* Use flexbox to arrange the elements */
+            max-height: 100vh;
+            display: flex; /* Use flexbox to arrange the elements */
          }
 
         aside {
@@ -25,8 +25,9 @@
         }
 
         main {
-            background: #F9F9F9;
+           
             flex: 1; /* Allow main to take remaining width */
+            overflow:scroll;
         }
 
          header{
@@ -36,10 +37,9 @@
            
         }
         section{
-            background:white;
-            width:95%;
+            background: #F9F9F9;
             min-height:600px;
-            margin:1em auto;
+            
         }
         
 
@@ -49,7 +49,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top:1.3em;
+            padding-top:0.5em;
+            padding-right:2em;
         }
 
         li {
@@ -68,56 +69,36 @@
                 display: none;
                 position:absolute;
                 margin-top:3em;
+                z-index:100;
             }
             main{
                 width:100% !important;
             }
 			.dropdown-menu-right{
-			margin-top:4em;
+			    margin-top:4em;
 			}
+           
         }
-        /* remove this code 
-       main{
-        background:white;
-       }*/
+    
     </style>
     <body id="app" >
-           
+                
           <aside>
-        
+               
                  <side-nav/>
 
             </aside>
-            
+    
             <main>
                  <header>
-                   
-                    <!--These file contain the header navigation item-->
-                      <header-nav />
-
-                </header>
-                <section>
-                   
-                <input type="hidden" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
+                    <input type="hidden" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
                     <input type="hidden" id="agricbusiness_detail" value="{{ json_encode(Auth::user()->agricbusiness_detail) }}"/>
                     <input type="hidden" id="investor_detail" value="{{ json_encode(Auth::user()->investor_detail) }}"/>
-                    <li class="dropdown">
-                            <a class="dropdown-toggle no-arrow" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <router-link to="/profile" class="dropdown-item"> <i class="fas fa-user"></i> Profile </router-link>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-bell"></i> Notifications</a>
-                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt"></i> Logout
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                    </li>
+                    
+                      <header-nav />
+    
+                </header>
+                <section>
                 
                     
                     <router-view></router-view>
@@ -146,6 +127,8 @@
             $('.nav-links li').has('.sub-links').click(function() {
 			    $(this).toggleClass('active').siblings().removeClass('active');
 		    });
+            //
+            
             
         })
   </script>

@@ -15,7 +15,7 @@ class CreateInvestorDetailsTable extends Migration
     {
         Schema::create('investor_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->index();
             $table->string('finance_institution');
             $table->json('investment_type');
             $table->string('preferred_deal_size');
@@ -23,7 +23,6 @@ class CreateInvestorDetailsTable extends Migration
             $table->text('organization_description');
             $table->timestamps();
             
-           // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

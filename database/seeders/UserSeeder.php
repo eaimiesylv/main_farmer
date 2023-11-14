@@ -14,15 +14,12 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'franchisee_id' => 1,
-            'name' => 'admin',
+           
             'email' => 'admin@milandetailsystems.internal',
             'password' => bcrypt('P@ssword#50MDS'),
-            'type' => 1, //for Franchise
-            'role_id' => 1, //1 for admin
-            'created_at' => now(),
-            'updated_at' => now(),
+            'status'=>1
+
         ]);
-        User::factory(10)->create();
+       
     }
 }

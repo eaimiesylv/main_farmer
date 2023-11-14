@@ -17,5 +17,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('da
 //displays the dashboard
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::get('/pitch', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/create_pitch', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -15,7 +15,7 @@ class CreateAgricBusinessesTable extends Migration
     {
         Schema::create('agric_businesses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->index();
             $table->string('organizationName');
             $table->string('dealName');
             $table->string('dealPromoters');
@@ -30,7 +30,6 @@ class CreateAgricBusinessesTable extends Migration
             $table->string('pitchFile')->nullable();
             $table->timestamps();
 
-           // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -52,6 +52,7 @@ class UserApiController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => false, 'error' => $validator->errors()], 500);
         }
+
         $commonComponentData = $request->input('commonComponentData');
         $dynamicComponentData = $request->input('dynamicComponentData');
         try {
@@ -64,6 +65,7 @@ class UserApiController extends Controller
                 'fullname'=>$commonComponentData['fullname'],
                 'password'=>Hash::make($commonComponentData['password']),
                 'phone_number'=>$commonComponentData['phone_number'],
+                'user_role' =>$request->userRole
             ]);
             $formData = array_merge($dynamicComponentData, ['user_id' => $user->id]);
 
