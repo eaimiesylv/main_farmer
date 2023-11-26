@@ -3,12 +3,11 @@
         <ul class="nav-links">
             <!--<li><i class="fas fa-home"></i> Home</li>-->
             <li><router-link to="/"><i class="fas fa-tachometer-alt"></i> Dashboard</router-link></li>
-            <li><router-link to="/pitch"><i class="fas fa-file-alt"></i> Pitch</router-link></li>
             <li><router-link to="/pitch"><i class="fas fa-file-alt"></i>Manage Pitch</router-link></li>
-            <li><router-link to="/pitch"><i class="fas fa-user"></i>Investors</router-link></li>
-            <li><router-link to="/pitch"><i class="fas fa-users"></i>Agribusinesses</router-link></li>
-            <li> <router-link to="/pitch"><i class="fas fa-briefcase"></i> Deals</router-link></li>
-            <li><router-link to="/pitch"><i class="fas fa-file-signature"></i>Proposals</router-link></li>
+            <li><router-link to="/investors"><i class="fas fa-user"></i>Investors</router-link></li>
+            <li><router-link to="/agribusiness"><i class="fas fa-users"></i>Agribusinesses</router-link></li>
+            <li> <router-link to="/deals"><i class="fas fa-briefcase"></i> Deals</router-link></li>
+            <li><router-link to="/proposals"><i class="fas fa-file-signature"></i>Proposals</router-link></li>
             <!-- <li>
                 <i class="fas fa-users"></i> Investors <i class="fas fa-caret-down"></i>
                 <ul class="sub-links">

@@ -5,7 +5,7 @@
 </template>
 <script>
 export default{
-    name:"ViewPitch",
+    name:"Pitch",
     data(){
         return{
             

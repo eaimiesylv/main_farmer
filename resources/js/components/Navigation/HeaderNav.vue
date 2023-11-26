@@ -14,11 +14,10 @@
 							<img src="/images/profile.png" alt="Profile Image" height="30" class="rounded-circle"/>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-							<router-link to="/profile" class="dropdown-item"> <i class="fas fa-user"></i> Profile </router-link>
-							<a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a>
-							<a class="dropdown-item" href="#"><i class="fas fa-bell"></i> Notifications</a>
+							<router-link to="/profile" class="dropdown-item"> <i class="fas fa-user"></i> <span>Profile </span></router-link>
+							<a class="dropdown-item" href="#"><i class="fas fa-cog"></i><span>Settings</span></a>
 							<a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-								<i class="fas fa-sign-out-alt"></i> Logout
+								<i class="fas fa-sign-out-alt"></i><span> Logout</span>
 							</a>
 
 							<form id="logout-form" action="/logout" method="POST" style="display: none;">
@@ -79,5 +78,7 @@ small{
 li:nth-child(4){
 	margin-right:-3em;
 }
-
+span{
+	padding:1em;
+}
 </style>
