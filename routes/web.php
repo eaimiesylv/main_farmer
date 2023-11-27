@@ -21,8 +21,8 @@ Route::get('/register', function () {
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-Route::get('/pitch', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/pitch', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index']);
 //displays the dashboard
 // Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 // Route::get('/pitch', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

@@ -30,7 +30,8 @@ class LoginController extends Controller
     
         $token = $user->createToken('api-token')->plainTextToken;
         $user = $user->load(['agricbusiness_detail', 'investor_detail']);
-        return redirect()->route('dashboard')->with('token', $token);
+        session(['token' => $token]);
+        return redirect()->route('dashboard');
 
     }
     public function logout(){

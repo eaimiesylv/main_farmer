@@ -91,11 +91,12 @@
     
             <main>
                  <header>
-                 {{ session('token') }}
+                
                   
                     <input type="text" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
                     <input type="text" id="agricbusiness_detail" value="{{ json_encode(Auth::user()->agricbusiness_detail) }}"/>
                     <input type="text" id="investor_detail" value="{{ json_encode(Auth::user()->investor_detail) }}"/>
+                    <input type="text" id="token" value="{{ session('token') }}"/>
                    
                     
                       <header-nav />
