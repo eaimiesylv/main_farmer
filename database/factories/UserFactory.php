@@ -21,6 +21,7 @@ class UserFactory extends Factory
         $types = [1,2,3];
        
         return [
+            'uuid' => str::uuid(),
             'email' => $this->faker->unique()->safeEmail,
             'fullname' => $this->faker->name,
             'company_website' => $this->faker->url,
@@ -29,7 +30,7 @@ class UserFactory extends Factory
             'password' => bcrypt('password'), 
             'email_verified_at' => now(),
             'last_login_at' => now(),
-            'user_role' => array_rand($types),
+            'role' => array_rand($types),
             'status' => 1,
         ];
        

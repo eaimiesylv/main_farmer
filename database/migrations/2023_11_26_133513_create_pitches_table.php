@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pipelines', function (Blueprint $table) {
+        Schema::create('pitches', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 150);
-            $table->unSignedBigInteger('created_by')->index();
+            $table->unsignedBigInteger('user_id');
+            $table->string('pitchname', 50);
+            $table->integer('pitchtype')->comment('1 business plan');
+            $table->string('pitchfile');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pipelines');
+        Schema::dropIfExists('pitches');
     }
 };

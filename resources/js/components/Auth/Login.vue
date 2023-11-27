@@ -48,16 +48,16 @@ export default {
     return {
      csrfToken: window.Laravel.csrfToken,
       login: {
-        email: 'test12@gmail.com',
-        password: 'abc',
+        email: 'admin@gmail.com',
+        password: '12345678',
       },
       userRole: null,
     };
   },
   methods: {
     submitData() {
-      toastr.success("This is a success message.", "Success");
-      //this.$router.push('/dashboard');
+
+     alert("ok");
     },
   },
 };

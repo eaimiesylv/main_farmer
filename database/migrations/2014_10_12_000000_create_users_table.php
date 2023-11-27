@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('uuid', 36)->index();
             $table->string('email', 160)->unique();
             $table->string('fullname', 160)->nullable();
             $table->string('company_website', 160)->nullable();
@@ -25,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('last_login_at')->nullable();
             $table->integer("status")->default(1);
-            $table->integer("user_role");//1 for admin 2 investor 3 agric
+            $table->integer("role");//1 for admin 2 investor 3 agric
             $table->timestamps();
          
         });

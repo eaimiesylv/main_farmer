@@ -9,29 +9,28 @@ use App\Http\Requests\AuthFormRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth; 
 
+
 //use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    public function login(Request $request){
-             
-         $user = \App\Models\User::where('email', $request->email)->first();
-          
-         if(!$user){
-           return response()->apiResponse('errors','User not found',null,401);
-         }
-         
-         //return [$request->password, $user->password];
-         if(!Hash::check($request->password,$user->password)){
-              
-              
-              return response()->apiResponse('errors','Wrong Credentials',null,500);
-         } 
-        $user= $user->load(['agricbusiness_detail', 'investor_detail']);
-         Auth::login($user);
-       // dd($user);
-        // protected $redirectTo = RouteServiceProvider::HOME;
-        return redirect()->route('dashboard');
+    public function store(Request $request)
+    {
+        $user = \App\Models\User::where('email', $request->email)->first();
+    
+        if (!$user) {
+            return response()->json(['error' => 'User not found.'], 401);
+        }
+    
+        if (!Hash::check($request->password, $user->password)) {
+            return response()->json(['error' => 'Wrong credential'], 403);
+        }
+    
+        Auth::login($user);
+    
+        $token = $user->createToken('api-token')->plainTextToken;
+        $user = $user->load(['agricbusiness_detail', 'investor_detail']);
+        return redirect()->route('dashboard')->with('token', $token);
 
     }
     public function logout(){

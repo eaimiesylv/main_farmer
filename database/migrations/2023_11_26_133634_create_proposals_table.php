@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pipeline_orders', function (Blueprint $table) {
+        Schema::create('proposals', function (Blueprint $table) {
             $table->id();
-            $table->integer('order');
-            $table->unSignedBigInteger('pipeline_id')->index();
-            $table->string('name');
+            $table->string('title');
+            $table->integer('deal_id');
+            $table->string('description');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pipeline_orders');
+        Schema::dropIfExists('proposals');
     }
 };

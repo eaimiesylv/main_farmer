@@ -46,10 +46,6 @@ class InvestorDetailController extends Controller
             if ($validator->fails()) {
                 return response()->json(['success' => false, 'errors' => $validator->errors()], 400);
             }
-
-            // Validation passed, you can now insert the data into the users table
-            // ...
-
             return response()->json(['success' => true, 'message' => 'Registration successful'], 200);
     }
 

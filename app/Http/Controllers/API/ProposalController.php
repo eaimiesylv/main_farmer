@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pipeline;
+use App\Models\Proposal;
 use Illuminate\Http\Request;
 
-class PipelineController extends Controller
+class ProposalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PipelineController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pipeline $pipeline)
+    public function show(Proposal $proposal)
     {
         //
     }
@@ -42,7 +42,7 @@ class PipelineController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pipeline $pipeline)
+    public function edit(Proposal $proposal)
     {
         //
     }
@@ -50,7 +50,7 @@ class PipelineController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pipeline $pipeline)
+    public function update(Request $request, Proposal $proposal)
     {
         //
     }
@@ -58,7 +58,7 @@ class PipelineController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pipeline $pipeline)
+    public function destroy(Proposal $proposal)
     {
         //
     }

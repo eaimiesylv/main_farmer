@@ -37,9 +37,8 @@ class UserApiController extends Controller
     }
 
     public function store(Request $request)
-    {
-       // return $request->all();
-       
+    {  
+        dd('ok');
         $validator = Validator::make($request->all(), [
             'commonComponentData.company_website' => 'nullable|string|max:255',
             'commonComponentData.contact_person' => 'required|string|max:255',
@@ -86,11 +85,10 @@ class UserApiController extends Controller
         
             return response()->json(['success' => true, 'message' =>'Registration successful'], 200);
         } catch (QueryException $e) {
-            DB::rollBack(); // Rollback the transaction if an error occurred
+            DB::rollBack();
             Log::error('Error occurred during transaction: ' . $e->getMessage());
             $errors = [
-                'commonComponentData.server' => ['Server eror.'],
-                // ... (add other error messages as needed)
+                'commonComponentData.server' => ['Server eror.']
             ];
             
             return response()->json(['error' => $errors, 'message' => $e->getMessage()], 500);

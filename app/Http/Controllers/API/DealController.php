@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PipelineOrder;
+use App\Models\Deal;
 use Illuminate\Http\Request;
 
-class PipelineOrderController extends Controller
+class DealController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PipelineOrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PipelineOrder $pipelineOrder)
+    public function show(Deal $deal)
     {
         //
     }
@@ -42,7 +42,7 @@ class PipelineOrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PipelineOrder $pipelineOrder)
+    public function edit(Deal $deal)
     {
         //
     }
@@ -50,7 +50,7 @@ class PipelineOrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PipelineOrder $pipelineOrder)
+    public function update(Request $request, Deal $deal)
     {
         //
     }
@@ -58,7 +58,7 @@ class PipelineOrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PipelineOrder $pipelineOrder)
+    public function destroy(Deal $deal)
     {
         //
     }

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
-
+use Illuminate\Support\Str;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -16,28 +16,28 @@ class DatabaseSeeder extends Seeder
 
         
         User::create([
-            
+            'uuid'=>str::uuid(),
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
-            'user_role' => 1, //admin
+            'role' => 1, //admin
             'created_at'=> Now(),
             'updated_at' => Now()
            
         ]);
         User::create([
-            
+            'uuid'=>str::uuid(),
             'email' => 'investor@gmail.com',
             'password' => bcrypt('12345678'),
-            'user_role' => 2, //investor
+            'role' => 2, //investor
             'created_at'=> Now(),
             'updated_at' => Now()
            
         ]);
         User::create([
-            
+            'uuid'=>str::uuid(),
             'email' => 'agricbusiness@gmail.com',
             'password' => bcrypt('12345678'),
-            'user_role' => 3, //agric business
+            'role' => 3, //agric business
             'created_at'=> Now(),
             'updated_at' => Now()
            
