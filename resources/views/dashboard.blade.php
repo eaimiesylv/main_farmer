@@ -93,9 +93,9 @@
                  <header>
                  {{ session('token') }}
                   
-                    <input type="hidden" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
-                    <input type="hidden" id="agricbusiness_detail" value="{{ json_encode(Auth::user()->agricbusiness_detail) }}"/>
-                    <input type="hidden" id="investor_detail" value="{{ json_encode(Auth::user()->investor_detail) }}"/>
+                    <input type="text" id="auth_user" value="{{ json_encode(Auth::user()) }}"/>
+                    <input type="text" id="agricbusiness_detail" value="{{ json_encode(Auth::user()->agricbusiness_detail) }}"/>
+                    <input type="text" id="investor_detail" value="{{ json_encode(Auth::user()->investor_detail) }}"/>
                    
                     
                       <header-nav />
@@ -104,7 +104,11 @@
                 <section>
                 
                     
-                    <router-view></router-view>
+                        <router-view 
+                            :session-key="{{ json_encode(session('token')) }}" 
+                            :auth-user="{{ json_encode(Auth::user()) }}">
+                        </router-view>
+
 
 
                  </section>

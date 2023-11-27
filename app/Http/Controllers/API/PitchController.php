@@ -19,7 +19,7 @@ class PitchController extends Controller
 
     public function index()
     {
-       
+    
         $matchingRecords = $this->pitchService->getAllPitches();
         return view('crm.document.index')->with('matchingRecords', $matchingRecords);
     }
