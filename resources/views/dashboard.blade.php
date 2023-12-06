@@ -104,11 +104,11 @@
                 </header>
                 <section>
                 
-                    
-                        <router-view 
+                        <router-view></router-view>
+                        <!-- <router-view 
                             :session-key="{{ json_encode(session('token')) }}" 
                             :auth-user="{{ json_encode(Auth::user()) }}">
-                        </router-view>
+                        </router-view> -->
 
 
 

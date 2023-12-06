@@ -152,6 +152,7 @@ import userDetailMixin from '@/components/Datasource/userDetailMixin.js'
        },
         data(){
             return{
+                 // profile, user_password, detail, user_details is coming from mixin file
                   profile:{}, //all user value
                   user_password:{},// password value
                   detail:'',//hold the title of tab which is either agric business or investor
